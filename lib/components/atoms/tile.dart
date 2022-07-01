@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ScoreHeaderColumn extends StatelessWidget {
-  const ScoreHeaderColumn(
-      {Key? key, required this.icon, this.backgroundColor = Colors.white})
+class Tile extends StatelessWidget {
+  const Tile(this.icon, {Key? key, this.backgroundColor = Colors.white})
       : super(key: key);
 
-  final Icon icon;
+  final Widget icon;
   final Color backgroundColor;
 
   @override

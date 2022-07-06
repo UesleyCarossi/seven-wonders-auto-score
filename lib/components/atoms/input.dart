@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Input extends StatelessWidget {
-  final TextInputType keyboardType;
-  final List<TextInputFormatter> inputFormatters;
+  final TextInputType _keyboardType;
+  final List<TextInputFormatter> _inputFormatters;
 
   Input.player({Key? key})
-      : keyboardType = TextInputType.text,
-        inputFormatters = <TextInputFormatter>[
+      : _keyboardType = TextInputType.text,
+        _inputFormatters = <TextInputFormatter>[
           FilteringTextInputFormatter.allow(
             RegExp(r'^[a-zA-Z]{1}$'),
           ),
@@ -15,8 +15,8 @@ class Input extends StatelessWidget {
         super(key: key);
 
   Input.score({Key? key})
-      : keyboardType = TextInputType.number,
-        inputFormatters = <TextInputFormatter>[
+      : _keyboardType = TextInputType.number,
+        _inputFormatters = <TextInputFormatter>[
           FilteringTextInputFormatter.allow(
             RegExp(r'^-?[0-9]{0,2}$'),
           ),
@@ -26,8 +26,8 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: keyboardType,
-      inputFormatters: inputFormatters,
+      keyboardType: _keyboardType,
+      inputFormatters: _inputFormatters,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,

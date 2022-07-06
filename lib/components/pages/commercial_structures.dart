@@ -3,17 +3,21 @@ import 'package:seven_wonders_auto_score/components/pages/scientific_structures.
 import 'package:seven_wonders_auto_score/components/templates/players_values.dart';
 
 class CommercialStructuresPage extends StatelessWidget {
-  const CommercialStructuresPage({super.key});
+  final int playerQuantity;
+
+  const CommercialStructuresPage({super.key, required this.playerQuantity});
 
   @override
   Widget build(BuildContext context) {
     return PlayersValuesTemplate.score(
         title: 'Cartas Amarelas (Estruturas Comerciais)',
+        size: playerQuantity,
         next: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const ScientificStructuresPage()),
+                builder: (context) =>
+                    ScientificStructuresPage(playerQuantity: playerQuantity)),
           );
         });
   }

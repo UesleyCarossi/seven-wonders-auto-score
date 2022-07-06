@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seven_wonders_auto_score/components/pages/players.dart';
+import 'package:seven_wonders_auto_score/components/pages/players_quantity.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const PlayersPage(),
+      home: const PlayersQuantityPage(),
     );
   }
 }

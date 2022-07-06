@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:seven_wonders_auto_score/components/atoms/input.dart';
+import 'package:seven_wonders_auto_score/components/organisms/input_grid.dart';
 
 class PlayersValuesTemplate extends StatelessWidget {
   final String title;
   final VoidCallback next;
-  final Input input;
+  final InputGrid inputGrid;
 
   PlayersValuesTemplate.player(
       {Key? key, required this.title, required this.next})
-      : input = Input.player(),
+      : inputGrid = InputGrid.player(),
         super(key: key);
 
   PlayersValuesTemplate.score(
       {Key? key, required this.title, required this.next})
-      : input = Input.score(),
+      : inputGrid = InputGrid.score(),
         super(key: key);
 
   @override
@@ -27,36 +27,8 @@ class PlayersValuesTemplate extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Center(
-              child: Container(
-                width: 85 * 3,
-                height: 85 * 3,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color(0xFF565658),
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xFF28272A),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Form(
-                    child: SingleChildScrollView(
-                      child: Wrap(
-                        runSpacing: 10,
-                        spacing: 10,
-                        alignment: WrapAlignment.center,
-                        children: List.generate(7, (index) {
-                          return SizedBox(
-                            width: 65,
-                            height: 65,
-                            child: input,
-                          );
-                        }),
-                      ),
-                    ),
-                  ),
-                ),
+              child: Form(
+                child: inputGrid,
               ),
             ),
           ),

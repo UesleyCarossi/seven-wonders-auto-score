@@ -7,7 +7,7 @@ class MilitaryConflictsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Conflitos Militares',
         next: () {
           Navigator.push(

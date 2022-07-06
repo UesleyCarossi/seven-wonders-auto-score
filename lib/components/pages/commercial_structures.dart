@@ -7,7 +7,7 @@ class CommercialStructuresPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Cartas Amarelas (Estruturas Comerciais)',
         next: () {
           Navigator.push(

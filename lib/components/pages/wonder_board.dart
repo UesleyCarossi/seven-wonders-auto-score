@@ -7,7 +7,7 @@ class WonderBoardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Tabuleiro de Maravilha',
         next: () {
           Navigator.push(

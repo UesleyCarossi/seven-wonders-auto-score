@@ -7,7 +7,7 @@ class CivilStructuresPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Cartas Azuis (Estruturas Civis)',
         next: () {
           Navigator.push(

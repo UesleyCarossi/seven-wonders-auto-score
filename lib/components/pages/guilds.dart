@@ -7,7 +7,7 @@ class GuildsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Cartas Roxas (Guildas)',
         next: () {
           Navigator.push(

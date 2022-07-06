@@ -7,7 +7,7 @@ class TreasurePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Tesouro',
         next: () {
           Navigator.push(

@@ -7,7 +7,7 @@ class ScientificStructuresPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayersValuesTemplate(
+    return PlayersValuesTemplate.score(
         title: 'Cartas Verdes (Estruturas Científicas)',
         next: () {
           Navigator.push(

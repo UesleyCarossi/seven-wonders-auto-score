@@ -3,13 +3,14 @@ import 'package:seven_wonders_auto_score/components/atoms/input.dart';
 import 'package:seven_wonders_auto_score/components/molecules/input_player.dart';
 
 class InputGrid extends StatelessWidget {
+  final int size;
   final Input _input;
 
-  InputGrid.player({Key? key})
+  InputGrid.player({Key? key, required this.size})
       : _input = Input.player(),
         super(key: key);
 
-  InputGrid.score({Key? key})
+  InputGrid.score({Key? key, required this.size})
       : _input = InputPlayer(),
         super(key: key);
 
@@ -32,7 +33,7 @@ class InputGrid extends StatelessWidget {
           runSpacing: 10,
           spacing: 10,
           alignment: WrapAlignment.center,
-          children: List.generate(7, (index) {
+          children: List.generate(size, (index) {
             return SizedBox(
               width: 65,
               height: 65,

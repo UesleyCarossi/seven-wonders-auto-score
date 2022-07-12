@@ -4,26 +4,17 @@ import 'package:seven_wonders_auto_score/components/organisms/grid.dart';
 class PlayersValuesTemplate extends StatelessWidget {
   final String title;
   final VoidCallback next;
-  final Grid grid;
-  final int size;
+  final Grid inputs;
 
-  PlayersValuesTemplate(
-      {Key? key, required this.title, required this.next, required this.grid})
-      : size = grid.size,
-        super(key: key);
-
-  PlayersValuesTemplate.player(
-      {Key? key, required this.title, required this.next, required this.size})
-      : grid = Grid.player(size: size),
-        super(key: key);
-
-  PlayersValuesTemplate.score(
-      {Key? key, required this.title, required this.next, required this.size})
-      : grid = Grid.score(size: size),
-        super(key: key);
+  const PlayersValuesTemplate(
+      {super.key,
+      required this.title,
+      required this.next,
+      required this.inputs});
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -34,12 +25,16 @@ class PlayersValuesTemplate extends StatelessWidget {
           Expanded(
             child: Center(
               child: Form(
-                child: grid,
+                key: formKey,
+                child: inputs,
               ),
             ),
           ),
           ElevatedButton(
-            onPressed: next,
+            onPressed: () {
+              formKey.currentState!.save();
+              next.call();
+            },
             child: const Text('Próximo'),
           ),
         ],

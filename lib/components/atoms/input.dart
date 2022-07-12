@@ -2,32 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Input extends StatelessWidget {
-  final TextInputType _keyboardType;
-  final List<TextInputFormatter> _inputFormatters;
+  final TextInputType keyboardType;
+  final List<TextInputFormatter> inputFormatters;
+  final void Function(String?) onSave;
 
-  Input.player({Key? key})
-      : _keyboardType = TextInputType.text,
-        _inputFormatters = <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(
-            RegExp(r'^[a-zA-Z]{1}$'),
-          ),
-        ],
-        super(key: key);
-
-  Input.score({Key? key})
-      : _keyboardType = TextInputType.number,
-        _inputFormatters = <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(
-            RegExp(r'^-?[0-9]{0,2}$'),
-          ),
-        ],
-        super(key: key);
+  const Input(
+      {super.key,
+      required this.keyboardType,
+      required this.inputFormatters,
+      required this.onSave});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: _keyboardType,
-      inputFormatters: _inputFormatters,
+      keyboardType: keyboardType,
+      inputFormatters: inputFormatters,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -47,6 +36,7 @@ class Input extends StatelessWidget {
         fontSize: 30,
         color: Color(0xFFA2A2A2),
       ),
+      onSaved: onSave,
     );
   }
 }

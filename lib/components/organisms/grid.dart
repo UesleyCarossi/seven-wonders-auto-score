@@ -1,40 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:seven_wonders_auto_score/components/atoms/input.dart';
-import 'package:seven_wonders_auto_score/components/molecules/input_player.dart';
 
 class Grid extends StatelessWidget {
   final List<Widget> children;
-  final int size;
+  final Function? onSave;
 
-  const Grid.quantity({Key? key, required this.children})
-      : size = children.length,
-        super(key: key);
+  const Grid({super.key, required this.children, this.onSave});
 
-  Grid.player({Key? key, required this.size})
+  /*Grid.player({Key? key, required this.size, required this.onSave})
       : children = List.generate(size, (index) {
           return SizedBox(
             width: 65,
             height: 65,
-            child: Input.player(),
+            child: Input.player(onSave: (value) {
+              onSave?.call(value);
+            }),
           );
         }),
         super(key: key);
 
-  Grid.score({Key? key, required this.size})
+  Grid.score(
+      {Key? key,
+      required this.size,
+      required List<String> players,
+      required this.onSave})
       : children = List.generate(size, (index) {
           return SizedBox(
             width: 65,
             height: 65,
-            child: InputPlayer(),
+            child: InputPlayer(
+                player: players[index], onSave: (value) => onSave?.call(value)),
           );
         }),
-        super(key: key);
+        super(key: key);*/
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 85.0 * 3,
-      height: (80.0 * (size / 3).ceil()) + 15,
+      height: (80.0 * (children.length / 3).ceil()) + 15,
       decoration: BoxDecoration(
         border: Border.all(
           color: const Color(0xFF565658),

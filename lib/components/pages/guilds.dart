@@ -46,7 +46,8 @@ class GuildsPage extends StatelessWidget {
         next: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const ScorePage()),
+            MaterialPageRoute(
+                builder: (context) => ScorePage(players: players)),
           );
         });
   }
